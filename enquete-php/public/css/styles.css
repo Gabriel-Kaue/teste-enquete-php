@@ -1,0 +1,24 @@
+*{
+    font-family: "JetBrains Mono", serif;
+}
+footer{
+    text-align: center;
+}
+h1{
+    text-align: center;
+}
+.flex-container{
+    display: flex;
+    height: 500px;
+    flex-flow: row wrap;
+    background-color: #ccc;
+}
+.flex-item{
+    background-color: black;
+    color: #fff;
+    padding: 20px;
+    margin: 4px;
+    height: 30px;
+
+    flex: 1 1 300px;
+}
