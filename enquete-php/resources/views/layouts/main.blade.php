@@ -11,6 +11,7 @@
 </head>
 <body>
     @yield('content')
+    <br>
     <footer>
         <p> Enquete PHP ltda</p>
     </footer>
