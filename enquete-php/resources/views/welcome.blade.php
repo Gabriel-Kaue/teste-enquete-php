@@ -3,6 +3,7 @@
 @section('content')
 <div>
     <h1> Enquetes </h1>
+    <button>CRIAR</button>
 </div>
 <div class="flex-container">
     <div class="flex-item">
