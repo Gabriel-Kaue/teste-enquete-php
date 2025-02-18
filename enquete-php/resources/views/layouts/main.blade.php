@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono" rel="stylesheet">
+
 </head>
 <body>
     @yield('content')
@@ -16,5 +17,6 @@
     <footer>
         <p> Enquete PHP ltda</p>
     </footer>
+    <script src="/js/scripts.js"></script>
 </body>
 </html>
