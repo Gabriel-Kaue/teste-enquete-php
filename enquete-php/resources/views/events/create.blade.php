@@ -25,13 +25,21 @@
                 <li class="form-row">
                     <input type="text" name="resposta" class="respostas" placeholder="resposta" required>
                 </li>
+        </div>   
+                <li class="form-row">
+                    <button type="submit" value="Submit">CRIAR ENQUETE</button>
+                </li>
             </ul>
-        </div>
-        <input type="submit" value="CRIAR ENQUETE">
     </form>
     <div>
-        <button class="add" onclick="add()"><i class="mais"></i>Criar Resposta</button>
-        <button class="remove" onclick="remover()"><i class="menos"></i>Remover Resposta</button>
+        <ul class="wrapper">
+            <li class="form-row">
+                <button class="form-row" onclick="add()">Criar Resposta</button>
+            </li>
+            <li class="form-row">
+                 <button class="form-row" onclick="remover()">Remover Resposta</button>
+            </li>
+        </ul>
     </div>
 </div>
 

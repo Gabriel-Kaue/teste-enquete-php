@@ -21,3 +21,35 @@ h1{
     height: 30;
     flex: 1 1 300px;
 }
+.wrapper {
+    background-color: whitesmoke;
+    list-style-type: none;
+    padding: 0;
+    border-radius: 3px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: center;
+    padding: .5em;
+}
+.form-row>input {
+    flex: 1;
+}
+
+.form-row>input,
+.form-row>button {
+    justify-content: center;
+    padding: .5em;
+}
+
+.form-row>button {
+    background: black;
+    color: white;
+    border: 0;
+}
+.form-row>button:active{
+    background: white;
+    color: black ;
+    border: 0;
+}
