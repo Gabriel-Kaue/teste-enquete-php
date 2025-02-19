@@ -1,5 +1,5 @@
 <?php
-
+use App\Models\Enquete;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,12 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('respostas', function (Blueprint $table) {
-            $table->id('idResposta');
+            $table->id();
             $table->timestamps();
-            $table->integer('folhaResposta');
             $table->string('textoResp');
-            $table->integer('numVotos');
-            $table->primary('idResposta');
+            $table->foreignIdFor(Enquete::class);
         });
     }
 
