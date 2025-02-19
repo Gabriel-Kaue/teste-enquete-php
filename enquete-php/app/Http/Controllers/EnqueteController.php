@@ -32,7 +32,7 @@ class EnqueteController extends Controller
         return view('create');
     }
 
-    public function store(EnqueteRequest $request): RedirectResponse
+    public function store(EnqueteRequest $request): RedirectResponse|View
     {
         DB::beginTransaction();
         try{
@@ -53,7 +53,49 @@ class EnqueteController extends Controller
             $errors = $e;
             DB::rollBack();
 
-            return view('erro');
+            return view('erro', compact('errors'));
         }
+    }
+    public function show($id): View
+    {
+        $enquete = $this->enquete->find($id);
+        $respostas = $enquete->respostas;
+        return view('mostrar', compact('enquete','respostas'));
+    }
+    public function edit($id): View{
+        $enquete = $this->enquete->find($id);
+        return view('create', compact('enquete'));
+    }
+    public function destroy($id):bool{
+        return (bool) $this->enquete->destroy($id);
+    }
+    public function update(EnqueteRequest $enqueteRequest, int $id): RedirectResponse|View
+    {
+        DB::beginTransaction();
+        try {
+            $respostas = $enqueteRequest->input('resposta');
+            $enquete = $this->enquete->find($id);
+            $enquete->finish_at = str_replace('T', ' ', $enqueteRequest->input('dtFim'));
+            $enquete->save();
+
+            foreach ($respostas as $resposta) {
+                $resposta = $this->$respostas
+                    ->where('textoResp', $resposta)
+                    ->first();
+
+                if (! $resposta) {
+                    $this->respostas->create([
+                        'textoResp' => $resposta,
+                        'enquete_id' => $enquete->id
+                    ]);
+                }
+            }
+            DB::commit();
+
+            return redirect('survey');
+        }catch (Exception $e) {
+            $erros = $e;
+            DB::rollBack();
+            return view('erro', compact('erros'));        }
     }
 }
